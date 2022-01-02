@@ -110,7 +110,7 @@
         <h2>About University</h2>
         <h5>Photo of main building:</h5>
         <div class="fakeimg" style="height:200px;">Place for image</div>
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        <p>Some text about university culpa qui officia deserunt mollit anim..</p>
         <h3>More informations</h3>
         <p>Lorem ipsum dolor sit ame.</p>
         <div class="fakeimg" style="height:60px;">Place for image</div><br>

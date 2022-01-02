@@ -66,7 +66,7 @@
         <label><b>Provided documents:</b></label>
         <form:input type="text" path="documentName" placeholder="Document name"/>
         <form:input type="text" path="description" placeholder="Document description"/>
-
+        <form:hidden path="student" />
         <button type="submit" class="registerbtn">Next step</button>
     </div>
 </form:form>

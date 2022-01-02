@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.validation.Valid;
@@ -27,10 +27,11 @@ public class StudentController {
     }
 
     @PostMapping
-    public String addAddress(@ModelAttribute("student") @Valid Student student, BindingResult result) {
+    public String addAddress(@ModelAttribute("student") @Valid Student student, BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return "registrationForm";
         } else {
+            redirectAttributes.addFlashAttribute("studentDocs",student);
             studentService.addStudent(student);
             return "redirect:/register/docs";
         }

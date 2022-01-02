@@ -9,6 +9,8 @@ import javax.validation.constraints.Pattern;
 
 
 @Entity
+@Getter
+@Setter
 @Table(name = "documents")
 public class Document {
 
@@ -25,39 +27,16 @@ public class Document {
     private String description;
 
     @ManyToOne(targetEntity = Student.class)
-    @JoinColumn(name = "student_id")
     private Student student;
 
     public Document(String documentName,
-                    String description) {
+                    String description,
+                    Student student) {
         this.documentName = documentName;
         this.description = description;
+        this.student = student;
     }
 
     public Document() {
-    }
-
-    public String getDocumentName() {
-        return documentName;
-    }
-
-    public void setDocumentName(String documentName) {
-        this.documentName = documentName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 }

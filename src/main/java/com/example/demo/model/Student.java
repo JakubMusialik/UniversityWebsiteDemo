@@ -3,6 +3,9 @@ package com.example.demo.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
+import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -36,24 +39,19 @@ public class Student {
     @Pattern(regexp = "[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.([a-zA-Z]{2,}){1}")
     private String email;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Document> documentList = new ArrayList<>();
-
-    @OneToOne(mappedBy = "student")
-    private Address address;
 
     public Student(String firstName,
                    String lastName,
                    String phoneNumber,
                    String email,
-                   List<Document> documentList,
-                   Address address) {
+                   List<Document> documentList) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.documentList = documentList;
-        this.address = address;
     }
 
     public Student() {

@@ -74,7 +74,7 @@
         <form:input type="text" path="postCode" placeholder="Post code"/>
         <label><b>Country:</b></label>
         <form:input type="text" path="country" placeholder="Country"/>
-
+        <form:hidden path="student" />
         <button type="submit" class="registerbtn">Register</button>
     </div>
 </form:form>

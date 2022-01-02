@@ -10,7 +10,7 @@ import javax.validation.constraints.Pattern;
 @Entity
 @Getter
 @Setter
-@Table(name="adresses")
+@Table(name = "adresses")
 public class Address {
 
     @Id
@@ -22,27 +22,26 @@ public class Address {
     private String street;
 
     @NotBlank
-    @Pattern(regexp ="[A-Za-z0-9\\s\\d]{1,}")
+    @Pattern(regexp = "[A-Za-z0-9\\s\\d]{1,}")
     private String houseNumber;
 
     @NotBlank
-    @Pattern(regexp="[A-Za-z\\s\\d]{1,}")
+    @Pattern(regexp = "[A-Za-z\\s\\d]{1,}")
     private String city;
 
     @NotBlank
-    @Pattern(regexp="[A-Za-z\\s\\d]{1,}")
+    @Pattern(regexp = "[A-Za-z\\s\\d]{1,}")
     private String countryState;
 
     @NotBlank
-    @Pattern(regexp="[0-9][0-9]-[0-9][0-9][0-9]")  //Polish postcode regex pattern
+    @Pattern(regexp = "[0-9][0-9]-[0-9][0-9][0-9]")  //Polish postcode regex pattern
     private String postCode;
 
     @NotBlank
-    @Pattern(regexp ="[A-Za-z\\s\\d]{1,}")
+    @Pattern(regexp = "[A-Za-z\\s\\d]{1,}")
     private String country;
 
     @OneToOne(targetEntity = Student.class)
-    @JoinColumn(name = "student_id")
     private Student student;
 
     public Address(String street,
@@ -60,5 +59,7 @@ public class Address {
         this.country = country;
         this.student = student;
     }
-    public Address(){ }
+
+    public Address() {
+    }
 }
